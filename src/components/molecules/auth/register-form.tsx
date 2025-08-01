@@ -25,6 +25,7 @@ import { Button } from "@/components/ui/button";
 import { registerUser } from "@/server/actions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const formSchema = z
   .object({
@@ -152,9 +153,9 @@ export default function RegisterForm({
           </Form>
           <div className="mt-4 text-center text-sm">
             Already have an account?{" "}
-            <a href="/login" className="underline underline-offset-4">
+            <Link href="/login" className="underline underline-offset-4">
               Sign in
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>

@@ -25,6 +25,7 @@ import { Button } from "@/components/ui/button";
 import { loginUser } from "@/server/actions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -114,9 +115,9 @@ export function LoginForm({
           </Form>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
-            <a href="/register" className="underline underline-offset-4">
+            <Link href="/register" className="underline underline-offset-4">
               Sign up
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>
