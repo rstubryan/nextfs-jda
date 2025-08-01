@@ -35,7 +35,7 @@ export async function updateUserProfile(userId: string, formData: FormData) {
       }
     }
 
-    // Update data object
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateData: any = {
       name,
       username,
