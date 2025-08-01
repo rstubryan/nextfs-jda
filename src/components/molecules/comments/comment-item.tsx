@@ -123,7 +123,9 @@ export function CommentItem({ comment, currentUserId }: CommentItemProps) {
       ) : (
         <>
           <div className="flex justify-between">
-            <p className="font-medium">{comment.author.name}</p>
+            <p className="font-medium">
+              {comment.author.name} ({comment.author.username})
+            </p>{" "}
             {isOwnComment && (
               <div className="flex space-x-2">
                 <Button

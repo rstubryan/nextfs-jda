@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { logoutUser } from "@/server/actions/auth";
 import { toast } from "sonner";
 import { useState } from "react";
+import Link from "next/link";
+import { UserCircle } from "lucide-react";
 
 interface NavAuthProps {
   isLoggedIn: boolean;
@@ -22,6 +24,7 @@ export function NavAuth({ isLoggedIn, username }: NavAuthProps) {
 
       if (result.success) {
         toast.success("Logged out successfully");
+        router.push("/"); // Redirect to home page
         router.refresh();
       } else {
         toast.error(result.error || "Failed to logout");
@@ -37,6 +40,12 @@ export function NavAuth({ isLoggedIn, username }: NavAuthProps) {
     return (
       <div className="flex items-center gap-4">
         <span className="text-sm">Welcome, {username}</span>
+        <Link href="/dashboard">
+          <Button variant="ghost" size="sm" className="flex items-center gap-1">
+            <UserCircle size={16} />
+            Dashboard
+          </Button>
+        </Link>
         <Button
           variant="outline"
           onClick={handleLogout}
