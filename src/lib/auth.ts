@@ -31,6 +31,7 @@ export async function verifyJWT(token: string) {
 
     const { payload } = await jwtVerify(token, secret);
     return payload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return null;
   }

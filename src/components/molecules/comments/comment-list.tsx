@@ -1,7 +1,10 @@
 import { getComments } from "@/server/actions/comments";
+import { getAuthUser } from "@/lib/auth";
+import { CommentItem } from "./comment-item";
 
 export async function CommentList() {
   const result = await getComments();
+  const user = await getAuthUser();
 
   if (!result.success || !result.data) {
     return (
@@ -24,11 +27,8 @@ export async function CommentList() {
       <h2 className="text-xl font-semibold">Comments</h2>
       <ul className="space-y-3">
         {result.data.map((comment) => (
-          <li key={comment.id} className="border p-4 rounded-md">
-            <p>{comment.comment}</p>
-            <p className="text-sm text-muted-foreground mt-2">
-              {comment.createdAt.toLocaleString()}
-            </p>
+          <li key={comment.id}>
+            <CommentItem comment={comment} currentUserId={user?.id} />
           </li>
         ))}
       </ul>
