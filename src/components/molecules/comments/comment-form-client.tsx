@@ -65,6 +65,7 @@ export function CommentFormClient({
       } else {
         toast.error(result.error || "Failed to add comment");
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error("An error occurred");
     } finally {
